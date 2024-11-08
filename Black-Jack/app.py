@@ -1,4 +1,4 @@
-import replit from clear
+# import replit from clear
 import random
 
 
@@ -31,30 +31,47 @@ def choose_the_winner(*a):
         player_sum += i
     for i in a[1]:
         dealer_sum += i
-    if player_sum > dealer_sum:
-        return player_sum
+    if player_sum > dealer_sum and player_sum <= 21:
+        return f"Player wins with {player_sum} points"
+    elif player_sum == dealer_sum and (player_sum <= 21 and dealer_sum <= 21):
+        return f"Tie. Both having {player_sum} points"
+    elif player_sum < dealer_sum and dealer_sum <= 21:
+        return f"Dealer wins with {dealer_sum} points"
     else:
-        return dealer_sum
-
-def play_game():
+        return f"Game over, player: {player_sum}; dealer: {dealer_sum}"
+def start_game():
+    player_cards = []
+    dealer_cards = []
     for i in range(2):
-        player_cards[i] = deal_card()
-        dealer_cards[i] = deal_card()
+        player_cards.append(deal_card())
+        dealer_cards.append(deal_card())
     print("Your cards are: ", player_cards[:2])
-    print("Dealer card is: ", dealer_cards[0])
-    choice = input("Do you want another card or you want to end the game and see who wins ? (print 'y' or 'n')")
+    print("Dealer's card is: ", dealer_cards[0])
+    choice = input("Do you want a card or end the game ? (type 'y' or 'n'\n")
     if choice == 'y':
-        player_cards += deal_card()
-    else:
+        continue_game(player_cards, dealer_cards)
+    elif choice == 'n':
         print(choose_the_winner(player_cards, dealer_cards))
 
-state = True
-    while state:
-        choice = str(input("Do you want to play Black-Jack game? (type 'y' or 'n')"))
-        if choice == 'y':
-            clear()
-            print_logo()
-        elif choice == 'n':
-            state = False
-        else:
-            print("Wrong Input!")
+def continue_game(player_cards, dealer_cards):
+    choice = 'y'
+    while sum(player_cards) <= 21 and choice == 'y':
+        player_cards.append(deal_card())
+        print("Your cards are:", player_cards)
+        print("Dealer's first card is:", dealer_cards[0])
+        if sum(player_cards) > 21:
+            print("You have exceeded 21!")
+            break
+        choice = input("Do you want a card or end the game ? (type 'y' or 'n'\n")
+    else:
+        print("Ending game...")
+    print(choose_the_winner(player_cards, dealer_cards))
+print_logo()
+choice = str(input("Do you want to play Black-Jack game? (type 'y' or 'n')\n"))
+if choice == 'y':
+    # clear()
+    start_game()
+elif choice == 'n':
+    print("Ok let's see you next time :)")
+else:
+    print("Wrong Input!")

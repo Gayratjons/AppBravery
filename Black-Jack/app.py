@@ -1,4 +1,4 @@
-# import replit from clear
+import os
 import random
 
 
@@ -69,7 +69,7 @@ def continue_game(player_cards, dealer_cards):
 print_logo()
 choice = str(input("Do you want to play Black-Jack game? (type 'y' or 'n')\n"))
 if choice == 'y':
-    # clear()
+    os.system('clear')
     start_game()
 elif choice == 'n':
     print("Ok let's see you next time :)")

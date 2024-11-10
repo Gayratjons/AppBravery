@@ -1,79 +1,9 @@
 import random
+from packman.py import hangman_states
 
 words = ["luminous", "wanderlust", "serendipity", "ephemeral", "quixotic"]
 chosen_word = random.choice(words)
 display =[]
-hangman_states = [
-    """
-     -----
-     |   |
-     O   |
-    /|\\  |
-    / \\  |
-         |
-    =========
-    """,  # Full
-
-    """
-     -----
-     |   |
-     O   |
-    /|\\  |
-      \\  |
-         |
-    =========
-    """,  # Left legless
-
-    """
-     -----
-     |   |
-     O   |
-    /|\\  |
-         |
-         |
-    =========
-    """,  # Both legless
-
-    """
-     -----
-     |   |
-     O   |
-     |\\  |
-         |
-         |
-    =========
-    """,  # Backless
-
-    """
-     -----
-     |   |
-     O   |
-     |   |
-         |
-         |
-    =========
-    """,  # Left handless
-
-    """
-     -----
-     |   |
-     O   |
-         |
-         |
-         |
-    =========
-    """,  # Both handless
-
-    """
-     -----
-     |   |
-         |
-         |
-         |
-         |
-    =========
-    """   # Neckless
-]
 lives = 7
 
 print(chosen_word)

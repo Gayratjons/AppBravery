@@ -1,5 +1,5 @@
 import random
-from packman.py import hangman_states
+from packman import hangman_states
 
 words = ["luminous", "wanderlust", "serendipity", "ephemeral", "quixotic"]
 chosen_word = random.choice(words)
@@ -23,7 +23,7 @@ while not end_of_game:
     if guess not in chosen_word:
         lives -= 1
         if lives == 0:
-            print("You lose")
+            print("You lost")
             end_of_game = True
     print("Lives left: ", lives)
     print(display)

@@ -1,5 +1,4 @@
 import os
-import replit from clear
 bid_dict = {}
 state = True
 yes_no = ""
@@ -13,7 +12,7 @@ def bid_selection():
             temp_key = key
     print(f"{temp_key} gets the item for {first_bid}")
 while state:
-    clear()
+    os.system('cls')
     name = str(input("What is your name ?\n"))
     bid = int(input("How much is your bid ? $"))
     yes_no = str(input("Is there anyone else with bill (type yes or no)?\n"))

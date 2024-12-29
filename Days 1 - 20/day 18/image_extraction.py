@@ -1,6 +1,6 @@
 import turtle
 import random
-import colorgram
+import colorgram # type: ignore
 turtle.colormode(255)
 timmy = turtle.Turtle()
 timmy.penup()

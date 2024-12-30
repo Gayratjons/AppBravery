@@ -19,7 +19,7 @@ class CreateBall(Turtle):
 
     def collision_x(self):
         self.move_x *= -1
-        self.speed_of_ball *= 0.9
+        self.speed_of_ball *= 0.95
         
     
     def reset_position(self):

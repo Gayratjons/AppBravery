@@ -1,12 +1,10 @@
 from screen import CreateScreen
 from snake import CreateSnake
 import time
+from ball import Ball
 screen = CreateScreen()
 snake = CreateSnake()
-
-
-    
-
+ball = Ball()
 
 screen.screen.listen()
 screen.screen.onkey(snake.up , "Up")    

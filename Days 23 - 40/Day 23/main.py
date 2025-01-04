@@ -15,13 +15,14 @@ screen.onkey(player.up, "Up")
 
 game_is_on = True
 while game_is_on:
-    time.sleep(0.1)
     screen.update()
-    car.create_car()
+    time.sleep(0.1)
+    car.createCar()
     car.move_cars()
+    
+    if player.is_on_finish_line():
+        player.go_to_start()
 
     for car in car.cars:
         if car.distance(player) < 20:
             game_is_on = False
-    if player.is_on_finish_line():
-        player.go_to_start()
